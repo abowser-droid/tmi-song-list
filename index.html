@@ -14,18 +14,31 @@ h1 { font-size:25px; line-height:1.2; margin:0 0 6px; letter-spacing:-0.01em; }
 a { color:#0b5cad; }
 .spothead { font-size:12px; text-transform:uppercase; letter-spacing:.09em; color:#6b665c;
             margin:0 0 10px; font-weight:700; }
-.spotgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(288px,1fr));
-            gap:14px; margin:0 0 30px; }
-.spot { border:1px solid #ded9cf; border-left:3px solid #b3261e; background:#fff;
-        border-radius:6px; padding:14px 16px 12px; }
-.spot h3 { font-size:15px; line-height:1.25; margin:0 0 3px; }
+.spotgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:0 0 30px; }
+@media (max-width:820px) { .spotgrid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px) { .spotgrid { grid-template-columns:1fr; } }
+.spot { border:1px solid #ded9cf; background:#fff; border-radius:6px; overflow:hidden;
+        display:flex; flex-direction:column; }
+.spotart { line-height:0; border-bottom:1px solid #ded9cf; }
+.spotart svg { display:block; width:100%; height:78px; }
+.spotbody { padding:11px 14px 12px; display:flex; flex-direction:column; flex:1; }
+.spot h3 { font-size:14px; line-height:1.25; margin:0 0 3px; }
 .spot h3 a { color:#1c1c1c; text-decoration:none; }
 .spot h3 a:hover { text-decoration:underline; }
-.spotby { font-size:13px; color:#3d3a34; margin:0 0 9px; font-weight:600; }
+.spotby { font-size:12.5px; color:#3d3a34; margin:0 0 7px; font-weight:600; }
 .spotmeta { color:#8a8478; font-weight:400; }
-.spot p { font-size:13.5px; line-height:1.5; margin:0 0 8px; }
-.spotlinks { margin-top:10px; }
-.spotlinks .chip { margin-left:0; margin-right:4px; }
+.spot p { font-size:13px; line-height:1.45; margin:0 0 7px; }
+.spotlede { color:#3d3a34; }
+.spotmore summary { font-size:12px; font-weight:700; color:#b3261e; cursor:pointer;
+                    list-style:none; display:inline-block; padding:1px 0; }
+.spotmore summary::-webkit-details-marker { display:none; }
+.spotmore summary::after { content:"..."; }
+.spotmore[open] summary::after { content:""; }
+.spotmore[open] summary { margin-bottom:6px; }
+.spotmore summary:hover { text-decoration:underline; }
+.spotmore { margin-bottom:4px; }
+.spotlinks { margin:auto 0 0; padding-top:9px; }
+.spotlinks .chip { margin-left:0; margin-right:4px; margin-bottom:3px; }
 .summary { border:1px solid #ded9cf; background:#fff; border-radius:6px;
            padding:16px 18px; margin:0 0 30px; }
 .stats { display:flex; flex-wrap:wrap; gap:10px 30px; margin-bottom:10px; }
@@ -80,40 +93,155 @@ section { margin-bottom:26px; }
 <h2 class="spothead">About four of these songs</h2>
 <div class="spotgrid">
 <article class="spot">
+<div class="spotart"><svg viewBox="0 0 300 110" preserveAspectRatio="none" role="img" aria-label="Ridgeline and cooling tower">
+<rect width="300" height="110" fill="#f2ede2"/>
+<circle cx="72" cy="44" r="21" fill="#e8c96a"/>
+<path d="M0 92 L44 60 L78 82 L120 48 L163 84 L200 62 L246 88 L300 58 L300 110 L0 110Z" fill="#3d3a34"/>
+<path d="M236 110 L241 66 h18 l5 44Z" fill="#b3261e"/>
+<path d="M268 110 L273 66 h18 l5 44Z" fill="#b3261e"/>
+<path d="M244 64 q6 -13 0 -22 M276 64 q6 -13 0 -22" stroke="#8a8478" stroke-width="2.5" fill="none" opacity=".7"/>
+</svg></div>
+<div class="spotbody">
 <h3><a href="#s1">(Potter County Was Made By the Hand of God, But the Devil Made) Three Mile Island</a></h3>
 <p class="spotby">Al Shade &amp; Jean Romaine <span class="spotmeta">Potter County PA, 1979</span></p>
-<p>Al Shade already had an anthem. A country singer from Gratz in Dauphin County, he wrote "Potter County Was Made by the Hand of God" after hunting trips to the northern tier, and it became the song he was known for. When the reactor failed in 1979 he hung the accident off the end of his own hymn to the place, which is why the title runs to fourteen words.</p>
-<p>He got the idea while shaving. Jean Romaine was his wife and his harmony singer: she had joined the Al Shade Show in 1953 as one of the Gesford Sisters, they married in 1955, and they sang together for about sixty years until her death in 2017. Their Three Mile Island song went out on a network newscast anchored by David Brinkley that year.</p>
-<p>The Al Shade Show turned seventy in 2022, one of the longest running programmes in radio. Shade died in January 2026 at the age of 98.</p>
+<p class="spotlede">Al Shade already had an anthem. He wrote "Potter County Was Made by the Hand of God" after hunting trips to the northern tier, and it became the song he was known for. When the reactor failed he hung the accident off the end of his own hymn to the place, which is why the title runs to fourteen words.</p>
+<details class="spotmore"><summary>More</summary>
+<p>He got the idea while shaving. Jean Romaine was his wife and his harmony singer: she joined the Al Shade Show in 1953 as one of the Gesford Sisters, they married in 1955, and they sang together for about sixty years until her death in 2017.</p>
+<p>Their song went out on a network newscast anchored by David Brinkley that year. The Al Shade Show turned seventy in 2022, one of the longest running programmes in radio. Shade died in January 2026 at the age of 98.</p>
+<p class="note srcs">Sources: <a class="src" href="https://lebtown.com/2023/07/11/myerstown-singer-al-shade-is-country-proud-and-still-going-strong-at-age-95/" target="_blank" rel="noopener">LebTown profile</a> <a class="src" href="https://yorkblog.com/onlyyork/al-shade-valley-view-tmi/" target="_blank" rel="noopener">York Daily Record</a></p>
+</details>
 <p class="spotlinks"><a class="chip chipnew" href="https://themudpiesun.com/tapewrecks/Nuclear/Al%20Shade%20TMI.mp3" target="_blank" rel="noopener">MP3 on the blog</a></p>
-<p class="note srcs">Sources: <a class="src" href="https://lebtown.com/2023/07/11/myerstown-singer-al-shade-is-country-proud-and-still-going-strong-at-age-95/" target="_blank" rel="noopener">LebTown profile, 2023</a> <a class="src" href="https://yorkblog.com/onlyyork/al-shade-valley-view-tmi/" target="_blank" rel="noopener">York Daily Record on Shade and TMI</a></p>
+</div>
 </article>
 <article class="spot">
+<div class="spotart"><svg viewBox="0 0 300 110" role="img" aria-label="A 45 rpm single">
+<rect width="300" height="110" fill="#f2ede2"/>
+<circle cx="150" cy="55" r="46" fill="#1c1c1c"/>
+<circle cx="150" cy="55" r="34" fill="none" stroke="#4a4a4a" stroke-width="1"/>
+<circle cx="150" cy="55" r="26" fill="none" stroke="#4a4a4a" stroke-width="1"/>
+<circle cx="150" cy="55" r="17" fill="#b3261e"/>
+<circle cx="150" cy="55" r="7" fill="#f2ede2"/>
+<g stroke="#b3261e" stroke-width="2.5" fill="none" opacity=".8">
+<path d="M212 32 q13 23 0 46"/><path d="M226 20 q22 35 0 70"/>
+<path d="M88 32 q-13 23 0 46"/><path d="M74 20 q-22 35 0 70"/></g>
+</svg></div>
+<div class="spotbody">
 <h3><a href="#s2">Radiation Funk</a></h3>
 <p class="spotby">Maxwell <span class="spotmeta">Columbia PA, 1979</span></p>
-<p>Maxwell were a seven-piece funk band from Columbia, a river town about twenty miles down the Susquehanna from the plant. They pressed the song themselves as a single, backed with "A New Star", and the label credit reads TMI Productions.</p>
-<p>It worked. The band's own history calls both sides local radio hits, produced by founding member Jeff Aston, who was still fronting the group decades later. Of roughly six hundred songs the accident produced, this is the one that got played on the radio in the shadow of the cooling towers.</p>
+<p class="spotlede">Of the roughly six hundred songs the accident produced, this is the one that got played on the radio in the shadow of the cooling towers. Maxwell were a seven-piece funk band from Columbia, a river town twenty miles downstream from the plant.</p>
+<details class="spotmore"><summary>More</summary>
+<p>They pressed it themselves as a single, backed with "A New Star", and the label credit reads TMI Productions. The band's own history calls both sides local radio hits, produced by founding member Jeff Aston.</p>
 <p>They are still going, as The Maxwell Project.</p>
-<p class="spotlinks"><a class="chip chipnew" href="https://themudpiesun.com/tapewrecks/Nuclear/Radiation%20Funk.mp3" target="_blank" rel="noopener">Radiation Funk (MP3)</a> <a class="chip chipnew" href="https://themudpiesun.com/tapewrecks/Nuclear/Maxwell%20-%20Meltdown.mp3" target="_blank" rel="noopener">Meltdown (MP3)</a></p>
-<p class="note srcs">Sources: <a class="src" href="https://www.discogs.com/release/1782893-Maxwell-14-Radiation-Funk" target="_blank" rel="noopener">Discogs: the 1979 single, DRP-130</a> <a class="src" href="https://www.themaxwellproject.com/the-band" target="_blank" rel="noopener">The band&#x27;s own history</a></p>
+<p class="note srcs">Sources: <a class="src" href="https://www.discogs.com/release/1782893-Maxwell-14-Radiation-Funk" target="_blank" rel="noopener">Discogs: the 1979 single</a> <a class="src" href="https://www.themaxwellproject.com/the-band" target="_blank" rel="noopener">The band</a></p>
+</details>
+<p class="spotlinks"><a class="chip chipnew" href="https://themudpiesun.com/tapewrecks/Nuclear/Radiation%20Funk.mp3" target="_blank" rel="noopener">Radiation Funk</a> <a class="chip chipnew" href="https://themudpiesun.com/tapewrecks/Nuclear/Maxwell%20-%20Meltdown.mp3" target="_blank" rel="noopener">Meltdown</a></p>
+</div>
 </article>
 <article class="spot">
+<div class="spotart"><svg viewBox="0 0 300 110" role="img" aria-label="A roulette wheel">
+<rect width="300" height="110" fill="#f2ede2"/>
+<g transform="translate(150 55)">
+<circle r="47" fill="#1c1c1c"/>
+<path d="M0 0 L47 0 A47 47 0 0 1 33 33 Z" fill="#b3261e"/>
+<path d="M0 0 L-33 33 A47 47 0 0 1 -47 0 Z" fill="#b3261e"/>
+<path d="M0 0 L-33 -33 A47 47 0 0 1 0 -47 Z" fill="#b3261e"/>
+<circle r="24" fill="#f2ede2"/><circle r="18" fill="#1c1c1c"/>
+<circle cx="0" cy="-36" r="5" fill="#f2ede2"/>
+</g>
+</svg></div>
+<div class="spotbody">
 <h3><a href="#s16">Roulette</a></h3>
 <p class="spotby">Bruce Springsteen <span class="spotmeta">NJ, 1979</span></p>
-<p>Springsteen wrote this within days of the accident, and it was the first song he recorded for The River, cut at the Power Station in New York at the beginning of April 1979 while the plant was still being brought under control.</p>
-<p>Then he left it off the record. It stayed in the vault for nine years and finally surfaced in 1988 on the B side of "One Step Up", which is a strange fate for the song that opened the sessions. It was collected properly on Tracks in 1998, and he has played it live 57 times since, starting on the 1988 tour.</p>
-<p>The blog carries it twice, and rightly: an acoustic demo under 1979, and the band version under 1988, when it was finally released.</p>
-<p class="spotlinks"><a class="chip chipnew" href="https://themudpiesun.com/tapewrecks/Nuclear/Roulette%20-%20Bruce%20Springsteen%20-%20Acoustic%20demo.mp3" target="_blank" rel="noopener">Acoustic demo (MP3)</a> <a class="chip chipnew" href="https://themudpiesun.com/tapewrecks/Nuclear/Bruce%20Springsteen%20Roulette.mp3" target="_blank" rel="noopener">1988 release (MP3)</a></p>
-<p class="note srcs">Sources: <a class="src" href="https://www.discogs.com/release/2513103-Bruce-Springsteen-One-Step-Up" target="_blank" rel="noopener">Discogs: One Step Up, Columbia 38-07726, 1988</a> <a class="src" href="http://brucebase.wikidot.com/song:roulette" target="_blank" rel="noopener">Brucebase</a></p>
+<p class="spotlede">Springsteen wrote this within days of the accident, and it was the first song he recorded for The River, cut at the Power Station in New York at the beginning of April 1979 while the plant was still being brought under control.</p>
+<details class="spotmore"><summary>More</summary>
+<p>Then he left it off the record. It sat in the vault for nine years and finally surfaced in 1988 on the B side of "One Step Up", a strange fate for the song that opened the sessions. It was collected properly on Tracks in 1998, and he has played it live 57 times since, starting on the 1988 tour.</p>
+<p>The blog carries it twice, and rightly: an acoustic demo under 1979, and the band version under 1988.</p>
+<p class="note srcs">Sources: <a class="src" href="https://www.discogs.com/release/2513103-Bruce-Springsteen-One-Step-Up" target="_blank" rel="noopener">Discogs: One Step Up, 1988</a> <a class="src" href="http://brucebase.wikidot.com/song:roulette" target="_blank" rel="noopener">Brucebase</a></p>
+</details>
+<p class="spotlinks"><a class="chip chipnew" href="https://themudpiesun.com/tapewrecks/Nuclear/Roulette%20-%20Bruce%20Springsteen%20-%20Acoustic%20demo.mp3" target="_blank" rel="noopener">Acoustic demo</a> <a class="chip chipnew" href="https://themudpiesun.com/tapewrecks/Nuclear/Bruce%20Springsteen%20Roulette.mp3" target="_blank" rel="noopener">1988 release</a></p>
+</div>
 </article>
 <article class="spot">
-<h3><a href="#s155">Harrisburg / Your Money and Your Life / Tell ‘Em No</a></h3>
+<div class="spotart"><svg viewBox="0 0 300 110" role="img" aria-label="A transmitter above rising water">
+<rect width="300" height="110" fill="#f2ede2"/>
+<path d="M150 22 L166 78 h-32 Z" fill="#1c1c1c"/>
+<circle cx="150" cy="18" r="5" fill="#b3261e"/>
+<g stroke="#b3261e" stroke-width="2.5" fill="none">
+<path d="M168 10 q14 12 14 26"/><path d="M182 0 q24 18 24 36"/>
+<path d="M132 10 q-14 12 -14 26"/><path d="M118 0 q-24 18 -24 36"/></g>
+<path d="M0 84 q25 -7 50 0 t50 0 t50 0 t50 0 t50 0 t50 0 L300 110 L0 110Z" fill="#3d3a34"/>
+<path d="M0 94 q25 -7 50 0 t50 0 t50 0 t50 0 t50 0 t50 0 L300 110 L0 110Z" fill="#1c1c1c" opacity=".55"/>
+</svg></div>
+<div class="spotbody">
+<h3><a href="#s20">London Calling</a></h3>
+<p class="spotby">The Clash <span class="spotmeta">UK, 1979</span></p>
+<p class="spotlede">The most famous song on this list is on it for one line. "A nuclear error, but I have no fear" is Three Mile Island, which had happened in March while the Clash were on their first American tour.</p>
+<details class="spotmore"><summary>More</summary>
+<p>Strummer stacked the verse with everything he had been reading. "London is drowning and I live by the river" came from the real prospect of the Thames flooding central London, a worry answered three years later by the Thames Barrier.</p>
+<p>Recorded that autumn and released as a single on 7 December 1979, nine months after the accident it name-checks in passing.</p>
+<p class="note srcs">Sources: <a class="src" href="https://en.wikipedia.org/wiki/London_Calling_(song)" target="_blank" rel="noopener">Wikipedia: London Calling</a></p>
+</details>
+<p class="spotlinks"><a class="chip chipnew" href="https://www.youtube.com/watch?v=-Gp6lYQrqSE" target="_blank" rel="noopener">Video on the blog</a></p>
+</div>
+</article>
+<article class="spot">
+<div class="spotart"><svg viewBox="0 0 300 110" role="img" aria-label="A strip of film">
+<rect width="300" height="110" fill="#f2ede2"/>
+<rect x="18" y="18" width="264" height="74" fill="#1c1c1c"/>
+<g fill="#f2ede2">
+<rect x="26" y="24" width="10" height="9" rx="1.5"/><rect x="26" y="77" width="10" height="9" rx="1.5"/>
+<rect x="60" y="24" width="10" height="9" rx="1.5"/><rect x="60" y="77" width="10" height="9" rx="1.5"/>
+<rect x="94" y="24" width="10" height="9" rx="1.5"/><rect x="94" y="77" width="10" height="9" rx="1.5"/>
+<rect x="128" y="24" width="10" height="9" rx="1.5"/><rect x="128" y="77" width="10" height="9" rx="1.5"/>
+<rect x="162" y="24" width="10" height="9" rx="1.5"/><rect x="162" y="77" width="10" height="9" rx="1.5"/>
+<rect x="196" y="24" width="10" height="9" rx="1.5"/><rect x="196" y="77" width="10" height="9" rx="1.5"/>
+<rect x="230" y="24" width="10" height="9" rx="1.5"/><rect x="230" y="77" width="10" height="9" rx="1.5"/>
+<rect x="264" y="24" width="10" height="9" rx="1.5"/><rect x="264" y="77" width="10" height="9" rx="1.5"/>
+</g>
+<rect x="46" y="40" width="60" height="31" fill="#6b665c"/>
+<rect x="120" y="40" width="60" height="31" fill="#b3261e"/>
+<rect x="194" y="40" width="60" height="31" fill="#6b665c"/>
+</svg></div>
+<div class="spotbody">
+<h3><a href="#s155">Harrisburg / Your Money and Your Life / Tell &#8216;Em No</a></h3>
 <p class="spotby">The Fourth Wall <span class="spotmeta">NYC, 1980</span></p>
-<p>These are songs from a film. Joan Harvey's 1980 documentary We Are the Guinea Pigs went to the farms and kitchens around Harrisburg and let the people who lived through the accident talk, and it cuts periodically to a band playing topical songs about what they were describing.</p>
-<p>The band was never really a band. The label that reissued the soundtrack describes the players as New Yorkers attached to the Fourth Wall theater group, and they are not credited by name. One Kind Favor put the whole thing out as an eight inch lathe cut in an edition of 27, free to download.</p>
-<p>That reissue turned out to hold six songs where the blog had three. War Machine, We Are The Guinea Pigs and The Crop Is In were not on the list until this project. The film itself is free to watch on archive.org.</p>
-<p class="spotlinks"><a class="chip chipnew" href="https://onekindfavor.bandcamp.com/album/we-are-the-guinea-pigs-ost-8-lathe" target="_blank" rel="noopener">Full soundtrack on Bandcamp</a> <a class="chip chipnew" href="https://archive.org/details/wearetheguineapigs" target="_blank" rel="noopener">Watch the film</a></p>
+<p class="spotlede">These are songs from a film. Joan Harvey's 1980 documentary We Are the Guinea Pigs went to the farms and kitchens around Harrisburg and let the people who lived through the accident talk, cutting periodically to a band playing topical songs about what they were describing.</p>
+<details class="spotmore"><summary>More</summary>
+<p>The band was never really a band. The label that reissued the soundtrack describes the players as New Yorkers attached to the Fourth Wall theater group, and they are not credited by name. One Kind Favor put it out as an eight inch lathe cut in an edition of 27, free to download.</p>
+<p>That reissue holds six songs where the blog had three. War Machine, We Are The Guinea Pigs and The Crop Is In were not on the list until now. The film itself is free to watch on archive.org.</p>
 <p class="note srcs">Sources: <a class="src" href="https://onekindfavor.bandcamp.com/album/we-are-the-guinea-pigs-ost-8-lathe" target="_blank" rel="noopener">One Kind Favor reissue notes</a></p>
+</details>
+<p class="spotlinks"><a class="chip chipnew" href="https://onekindfavor.bandcamp.com/album/we-are-the-guinea-pigs-ost-8-lathe" target="_blank" rel="noopener">Full soundtrack</a> <a class="chip chipnew" href="https://archive.org/details/wearetheguineapigs" target="_blank" rel="noopener">Watch the film</a></p>
+</div>
+</article>
+<article class="spot">
+<div class="spotart"><svg viewBox="0 0 300 110" role="img" aria-label="A split single with a newspaper insert">
+<rect width="300" height="110" fill="#f2ede2"/>
+<path d="M104 55 a44 44 0 0 1 44 -44 v88 a44 44 0 0 1 -44 -44Z" fill="#1c1c1c"/>
+<path d="M148 11 a44 44 0 0 1 44 44 a44 44 0 0 1 -44 44Z" fill="#6b665c"/>
+<circle cx="148" cy="55" r="6" fill="#f2ede2"/>
+<g fill="#fff" stroke="#c9c2b4" stroke-width="1">
+<rect x="200" y="24" width="72" height="62"/></g>
+<g fill="#b3261e"><rect x="206" y="30" width="60" height="6"/></g>
+<g fill="#8a8478">
+<rect x="206" y="42" width="60" height="2.5"/><rect x="206" y="49" width="60" height="2.5"/>
+<rect x="206" y="56" width="60" height="2.5"/><rect x="206" y="63" width="42" height="2.5"/>
+<rect x="206" y="70" width="60" height="2.5"/><rect x="206" y="77" width="34" height="2.5"/></g>
+<g fill="#8a8478">
+<rect x="28" y="30" width="60" height="2.5"/><rect x="28" y="37" width="60" height="2.5"/>
+<rect x="28" y="44" width="44" height="2.5"/></g>
+</svg></div>
+<div class="spotbody">
+<h3><a href="#s359">Tsjerno Harris</a></h3>
+<p class="spotby">RTC (Rocking Teenage Combo) <span class="spotmeta">Netherlands, 1986</span></p>
+<p class="spotlede">This one was missing until a few hours ago. Stichting Laka, the Dutch anti-nuclear documentation centre, put the audio online in April 2026, which is why no search had ever turned it up.</p>
+<details class="spotmore"><summary>More</summary>
+<p>The record is a split seven inch called Is It Safe, cut in the months after April 1986 in an edition of 250, with an A3 insert of newspaper cuttings about Chernobyl and radiation. RTC have the A side at 45 rpm; De Fabriek have Harrisnobyl on the B side, exactly ten minutes at 33 and a third.</p>
+<p>The two titles play on Tsjernobyl and Harrisburg, which is the whole point: by 1986 the two accidents had become one idea. Laka hosts the A side but not the B, so De Fabriek's half of the record is still missing.</p>
+<p class="note srcs">Sources: <a class="src" href="https://www.laka.org/music-from-anti-nuclear-movement/netherlands" target="_blank" rel="noopener">Stichting Laka, Dutch anti-nuclear music archive</a></p>
+</details>
+<p class="spotlinks"><a class="chip chipnew" href="https://www.laka.org/bijlagen/2026/04/RTC-Tsjerno_Harris.mp3" target="_blank" rel="noopener">MP3 at Stichting Laka</a></p>
+</div>
 </article>
 </div>
 <div class="summary">
